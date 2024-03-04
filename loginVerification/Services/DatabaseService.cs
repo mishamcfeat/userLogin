@@ -38,7 +38,7 @@ public class DatabaseService : IDatabaseService
 
     public bool RegisterUser(User user)
     {
-        // Implement database logic for registering user here
+        // This would contain the login for registering a user
         return true;
     }
 }
