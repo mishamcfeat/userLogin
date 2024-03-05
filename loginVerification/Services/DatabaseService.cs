@@ -10,7 +10,6 @@ public class DatabaseService : IDatabaseService
 {
     public bool CheckLogin(string username, string password)
     {
-        // Implement database logic for checking login here
         string connString = "Host=localhost;Port=5432;Username=postgres;Password=9596;Database=loginVerification";
 
         using (var conn = new NpgsqlConnection(connString))
