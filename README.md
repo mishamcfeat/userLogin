@@ -38,7 +38,7 @@ Please read `CONTRIBUTING.md` for details on our code of conduct, and the proces
 
 ## Authors
 
-- Your Name
+- Misha McFeat
 
 See also the list of [contributors](https://github.com/yourusername/loginVerification/contributors) who participated in this project.
 
