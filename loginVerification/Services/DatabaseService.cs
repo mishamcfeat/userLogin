@@ -38,7 +38,25 @@ public class DatabaseService : IDatabaseService
 
     public bool RegisterUser(User user)
     {
-        // This would contain the login for registering a user
-        return true;
+        string connString = "Host=localhost;Port=5432;Username=postgres;Password=9596;Database=loginVerification";
+
+        using (var conn = new NpgsqlConnection(connString))
+        {
+            conn.Open();
+
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.Password);
+
+            string query = "INSERT INTO users (username, password) VALUES (@username, @password)";
+            using (var cmd = new NpgsqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("username", user.Username);
+                cmd.Parameters.AddWithValue("password", hashedPassword);
+
+                int result = cmd.ExecuteNonQuery();
+
+                // If the query successfully inserted a row, result will be 1
+                return result == 1;
+            }
+        }
     }
 }

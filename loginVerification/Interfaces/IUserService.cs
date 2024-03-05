@@ -1,7 +1,11 @@
-﻿namespace loginVerification.Interfaces;
+﻿using loginVerification.Models;
 
-public interface IUserService
+namespace loginVerification.Interfaces
 {
-    bool Login(string username, string password);
-    bool Register(User user);
+    public interface IUserService
+    {
+        bool Login(string username, string password);
+        bool Register(User user);
+    }
 }
+

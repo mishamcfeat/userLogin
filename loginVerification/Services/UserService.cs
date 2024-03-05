@@ -19,7 +19,6 @@ public class UserService : IUserService
 
     public bool Register(User user)
     {
-        // Implement register logic here
-        return true;
+        return _databaseService.RegisterUser(user);
     }
 }

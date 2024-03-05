@@ -28,20 +28,32 @@ namespace loginVerification
 
                 if (choice == 1)
                 {
-                    Console.WriteLine("Enter username: ");
-                    string username = Console.ReadLine();
-                    Console.WriteLine("Enter password: ");
-                    string password = Console.ReadLine();
+                    int loginAttempts = 0;
+                    while (loginAttempts < 3)
+                    {
+                        Console.WriteLine("Enter username: ");
+                        string username = Console.ReadLine();
+                        Console.WriteLine("Enter password: ");
+                        string password = Console.ReadLine();
 
-                    if (userService.Login(username, password))
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid username or password. Please try again.");
+                        if (userService.Login(username, password))
+                        {
+                            Console.WriteLine("Login successful!");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid username or password. Please try again.");
+                            loginAttempts++;
+                            if (loginAttempts == 3)
+                            {
+                                Console.WriteLine("You have reached the maximum number of login attempts. Goodbye!");
+                                return;
+                            }
+                        }
                     }
                 }
+                
                 else if (choice == 2)
                 {
                     Console.WriteLine("Enter username: ");
@@ -53,6 +65,7 @@ namespace loginVerification
 
                     if (userService.Register(user))
                     {
+                        Console.WriteLine("Registration successful!");
                         continue;
                     }
                     else
