@@ -40,8 +40,6 @@ Please read `CONTRIBUTING.md` for details on our code of conduct, and the proces
 
 - Misha McFeat
 
-See also the list of [contributors](https://github.com/yourusername/loginVerification/contributors) who participated in this project.
-
 ## License
 
 This project is licensed under the MIT License - see the `LICENSE.md` file for details
